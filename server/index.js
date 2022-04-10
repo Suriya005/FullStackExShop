@@ -81,6 +81,10 @@ const validateToken = async (req, res, next) => {
   }
 };
 
+app.get("/", async (req, res) => {
+  res.send("Hello World");
+})
+
 app.get("/users", optGetAllUsers, async (req, res) => {
   try {
     const sql = "SELECT * FROM users";
@@ -147,6 +151,8 @@ app.post("/register", async (req, res) => {
     res.status(200).send({ msg: "success" });
   }
 });
+
+
 
 app.listen(3300, () => {
   console.log(`Server is running on port ${3300}`);
